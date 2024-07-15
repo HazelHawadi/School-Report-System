@@ -13,21 +13,20 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('school_report_system')
 
 users = {
-    'username': 'teacher',
-    'password': 'teacher123'
+    'teacher': 'teacher123'
 }
 
 # Function to validate user Credentials
 def validate_user():
-    username = input("Enter your username: ")
-    password = input("Enter your password: ")
+    while True:
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
 
-    if username in users and users[username] == password:
-        print("Validation successful!")
-        return True
-    else:
-        print("Failed! Invalid username or password.")
-        return False
+        if username in users and users[username] == password:
+            print("Validation successful!")
+            return True
+        else:
+            print("Failed! Invalid username or password. Please try again.")
 
 # Function to collect student grades
 def get_student_grades():
