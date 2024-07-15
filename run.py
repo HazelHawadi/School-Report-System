@@ -6,14 +6,13 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
-
+# Function to setup Google Sheets API
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('school_report_system')
 
-grades = SHEET.worksheet('grades')
-
-data = grades.get_all_values()
-
-print(data)
+users = {
+    'username': 'teacher',
+    'password': 'teacher123'
+}
