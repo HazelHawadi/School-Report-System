@@ -59,21 +59,36 @@ def collect_grades(worksheet):
 
 def calculate_averages(grades):
     """ Function to calculate average grades """
+    subjects = ['Mathematics', 'English', 'Physics', 'Chemistry']
     student_averages = []
+    
+    subject_totals = {subject: 0 for subject in subjects}
+    subject_counts = {subject: 0 for subject in subjects}
+    
     for entry in grades:
         student = entry['Student Name']
-        grade_values = [entry[subject] for subject in ['Mathematics', 'English', 'Physics', 'Chemistry']]
+        grade_values = [entry[subject] for subject in subjects]
+        
+        for subject, grade in zip(subjects, grade_values):
+            subject_totals[subject] += grade
+            subject_counts[subject] += 1
+        
         average = sum(grade_values) / len(grade_values)
-        student_averages.append({'student_name': student, 'average': average})
-
-    return student_averages
+        student_averages.append({'student_name': student, 'grades': grade_values, 'average': average})
+    
+    subject_averages = {subject: subject_totals[subject] / subject_counts[subject] for subject in subjects}
+    
+    return student_averages, subject_averages
 
 def update_averages(sheet, averages):
     """ Function to update the averages worksheet """
-    sheet.append_row(['Student Name', 'Average Grade'])
-    for student in averages:
-        row = [student['student_name'], student['average']]
+    sheet.append_row(['Student Name', 'Mathematics', 'English', 'Physics', 'Chemistry', 'Average Grade'])
+    for student in averages[0]:
+        row = [student['student_name']] + student['grades'] + [student['average']]
         sheet.append_row(row)
+    sheet.append_row([])
+    sheet.append_row(['Subject Averages'] + [averages[1][subject] for subject in ['Mathematics', 'English', 'Physics', 'Chemistry']])
+
 
 
 def main():
