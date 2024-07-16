@@ -89,7 +89,15 @@ def update_averages(sheet, averages):
     sheet.append_row([])
     sheet.append_row(['Subject Averages'] + [averages[1][subject] for subject in ['Mathematics', 'English', 'Physics', 'Chemistry']])
 
-
+def student_rankings(averages):
+    """Sort students by average grade in descending order"""
+    sorted_averages = sorted(averages[0], key=lambda x: x['average'], reverse=True)
+    
+    """Assign ranks based on sorted order"""
+    for rank, student in enumerate(sorted_averages, start=1):
+        student['rank'] = rank
+    
+    return sorted_averages
 
 def main():
     if validate_user():
@@ -107,6 +115,10 @@ def main():
             print(average)
         averages_worksheet = SHEET.worksheet('averages')
         update_averages(averages_worksheet, averages)
+        ranked_students = student_rankings(averages)
+        print("Student Rankings:")
+        for student in ranked_students:
+            print(f"Student Name: {student['student_name']}, Average Grade: {student['average']}, Rank: {student['rank']}")
 
 if __name__ == "__main__":
     main()
