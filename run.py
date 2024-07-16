@@ -53,3 +53,12 @@ def insert_grades(data, worksheet):
     row = [data['student_name']] + data['grades']
     worksheet.append_row(row)
     
+def main():
+    if validate_user():
+        data = get_student_grades()
+        grades_worksheet = SHEET.worksheet('grades')
+        insert_grades(data, grades_worksheet)
+        print("Grades successfully inserted into the worksheet.")
+
+if __name__ == "__main__":
+    main()
