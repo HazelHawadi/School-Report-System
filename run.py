@@ -68,6 +68,14 @@ def calculate_averages(grades):
 
     return student_averages
 
+def update_averages(sheet, averages):
+    """ Function to update the averages worksheet """
+    sheet.append_row(['Student Name', 'Average Grade'])
+    for student in averages:
+        row = [student['student_name'], student['average']]
+        sheet.append_row(row)
+
+
 def main():
     if validate_user():
         data = get_student_grades()
@@ -82,6 +90,8 @@ def main():
         print("Student Averages:")
         for average in averages:
             print(average)
+        averages_worksheet = SHEET.worksheet('averages')
+        update_averages(averages_worksheet, averages)
 
 if __name__ == "__main__":
     main()
