@@ -31,21 +31,25 @@ def validate_user():
 # Function to collect student grades
 def get_student_grades():
     student_name = input("Enter the student's name: ")
+    subjects = ['Mathematics', 'English', 'Physics', 'Chemistry']
     grades = []
-    while True:
-        input_grade = input("Enter the grade (or type 'done' to finish): ").strip().lower()
-        if grade_input == 'done':
-            break
-        try:
-            # Convert the input to a float and check if it's within valid range
-            grade = float(grade_input)
-            if grade < 0 or grade > 100:
-                raise ValueError("Grade must be between 0 and 100.")
-            grades.append(grade)
-        except ValueError as e:
-            print(f"Invalid input: {e}")
-
+    
+    for subject in subjects:
+        while True:
+            grade_input = input(f"Enter the grade for {subject}: ").strip().lower()
+            try:
+                grade = float(grade_input)
+                if grade < 0 or grade > 100:
+                    raise ValueError("Grade must be between 0 and 100.")
+                grades.append(grade)
+                break
+            except ValueError as e:
+                print(f"Invalid input: {e}")
+    
     return {'student_name': student_name, 'grades': grades}
 
-validate_user()
-get_student_grades()
+# Function to insert grades into Google Sheets
+def insert_grades(data, worksheet):
+    row = [data['student_name']] + data['grades']
+    worksheet.append_row(row)
+    
