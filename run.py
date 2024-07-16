@@ -113,24 +113,33 @@ def create_report_cards(sheet, rankings):
 
 def main():
     if validate_user():
-        data = get_student_grades()
-        grades_worksheet = SHEET.worksheet('grades')
-        insert_grades(data, grades_worksheet)
-        all_grades = collect_grades(grades_worksheet)
-        print("Grades successfully inserted into the worksheet.")
-        print("All grades in the worksheet:")
-        for record in all_grades:
-            print(record)
+        while True:
+            data = get_student_grades()
+            grades_worksheet = SHEET.worksheet('grades')
+            insert_grades(data, grades_worksheet)
+            all_grades = collect_grades(grades_worksheet)
+            print("Grades inserted into the worksheet.")
+            print("All grades in the worksheet:")
+            for record in all_grades:
+                print(record)
+            
+            another_student = input("Add another student? (yes/no): ").strip().lower()
+            if another_student != 'yes':
+                break
+        
         averages = calculate_averages(all_grades)
         print("Student Averages:")
         for average in averages:
             print(average)
+        
         averages_worksheet = SHEET.worksheet('averages')
         update_averages(averages_worksheet, averages)
+        
         ranked_students = student_rankings(averages)
         print("Student Rankings:")
         for student in ranked_students:
             print(f"Student Name: {student['student_name']}, Average Grade: {student['average']}, Rank: {student['rank']}")
+        
         create_report_cards(SHEET, ranked_students)
 
 if __name__ == "__main__":
