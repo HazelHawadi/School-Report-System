@@ -6,7 +6,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
-# Function to setup Google Sheets API
+""" Function to setup Google Sheets API """
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -16,8 +16,8 @@ users = {
     'teacher': 'teacher123'
 }
 
-# Function to validate user Credentials
 def validate_user():
+    """ Function to validate user Credentials """
     while True:
         username = input("Enter your username: ")
         password = input("Enter your password: ")
@@ -28,8 +28,8 @@ def validate_user():
         else:
             print("Failed! Invalid username or password. Please try again.")
 
-# Function to collect student grades
 def get_student_grades():
+    """ Function to collect student grades """
     student_name = input("Enter the student's name: ")
     subjects = ['Mathematics', 'English', 'Physics', 'Chemistry']
     grades = []
@@ -44,21 +44,29 @@ def get_student_grades():
                 grades.append(grade)
                 break
             except ValueError as e:
-                print(f"Invalid input: {e}")
+                print(f"Invalid input, {e}")
     
     return {'student_name': student_name, 'grades': grades}
 
-# Function to insert grades into Google Sheets
 def insert_grades(data, worksheet):
+    """ Function to insert grades into Google Sheets """
     row = [data['student_name']] + data['grades']
     worksheet.append_row(row)
-    
+
+def collect_grades(worksheet):
+    """ Function to collect all grades from Google Sheets """
+    return worksheet.get_all_records()
+
 def main():
     if validate_user():
         data = get_student_grades()
         grades_worksheet = SHEET.worksheet('grades')
         insert_grades(data, grades_worksheet)
+        all_grades = collect_grades(grades_worksheet)
         print("Grades successfully inserted into the worksheet.")
+        print("All grades in the worksheet:")
+        for record in all_grades:
+            print(record)
 
 if __name__ == "__main__":
     main()
