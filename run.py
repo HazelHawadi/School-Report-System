@@ -1,5 +1,8 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import init, Fore
+
+init()
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -13,7 +16,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('school_report_system')
 
 users = {
-    'admin': 'teacher123'
+    'admin': 'admin123'
 }
 
 def validate_user():
@@ -23,10 +26,10 @@ def validate_user():
         password = input("Enter your password: ")
 
         if username in users and users[username] == password:
-            print("Validation successful!")
+            print(Fore.GREEN + "Validation successful!" + Fore.RESET)
             return True
         else:
-            print("Failed! Invalid username or password. Please try again.")
+            print(Fore.RED + "Failed! Invalid username or password. Please try again." + Fore.RESET)
 
 def get_student_grades():
     """ Function to collect student grades """
@@ -44,7 +47,7 @@ def get_student_grades():
                 grades.append(grade)
                 break
             except ValueError as e:
-                print(f"Invalid input, {e}")
+                print(Fore.RED + f"Invalid input, {e}" + Fore.RESET)
     
     return {'student_name': student_name, 'grades': grades}
 
@@ -119,8 +122,8 @@ def main():
             grades_worksheet = SHEET.worksheet('grades')
             insert_grades(data, grades_worksheet)
             all_grades = collect_grades(grades_worksheet)
-            print("Grades inserted into the worksheet.")
-            print("All grades in the worksheet:")
+            print(Fore.YELLOW + "Grades inserted into the worksheet." + Fore.RESET)
+            print(Fore.CYAN + "All grades in the worksheet:" + Fore.RESET)
             for record in all_grades:
                 print(record)
             
@@ -129,7 +132,7 @@ def main():
                 break
         
         averages = calculate_averages(all_grades)
-        print("Student Averages:")
+        print(Fore.CYAN + "Student Averages:" + Fore.RESET)
         for average in averages:
             print(average)
         
@@ -137,7 +140,7 @@ def main():
         update_averages(averages_worksheet, averages)
         
         ranked_students = student_rankings(averages)
-        print("Student Rankings:")
+        print(Fore.MAGENTA + "Student Rankings:" + Fore.RESET)
         for student in ranked_students:
             print(f"Student Name: {student['student_name']}, Average Grade: {student['average']}, Rank: {student['rank']}")
         
