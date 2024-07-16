@@ -114,6 +114,8 @@ def create_report_cards(sheet, rankings):
         row = [student['student_name'], student['average'], student['rank'], comment]
         report_card_worksheet.append_row(row)
 
+    print(Fore.GREEN + "Comments have been successfully added." + Fore.RESET)
+
 def main():
     """Main function to run the program"""
     if validate_user():
