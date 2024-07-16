@@ -13,7 +13,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('school_report_system')
 
 users = {
-    'teacher': 'teacher123'
+    'admin': 'teacher123'
 }
 
 def validate_user():
@@ -57,6 +57,17 @@ def collect_grades(worksheet):
     """ Function to collect all grades from Google Sheets """
     return worksheet.get_all_records()
 
+def calculate_averages(grades):
+    """ Function to calculate average grades """
+    student_averages = []
+    for entry in grades:
+        student = entry['Student Name']
+        grade_values = [entry[subject] for subject in ['Mathematics', 'English', 'Physics', 'Chemistry']]
+        average = sum(grade_values) / len(grade_values)
+        student_averages.append({'student_name': student, 'average': average})
+
+    return student_averages
+
 def main():
     if validate_user():
         data = get_student_grades()
@@ -67,6 +78,10 @@ def main():
         print("All grades in the worksheet:")
         for record in all_grades:
             print(record)
+        averages = calculate_averages(all_grades)
+        print("Student Averages:")
+        for average in averages:
+            print(average)
 
 if __name__ == "__main__":
     main()
