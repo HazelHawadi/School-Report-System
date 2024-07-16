@@ -82,6 +82,7 @@ def calculate_averages(grades):
 
 def update_averages(sheet, averages):
     """ Function to update the averages worksheet """
+    sheet.clear()
     sheet.append_row(['Student Name', 'Mathematics', 'English', 'Physics', 'Chemistry', 'Average Grade'])
     for student in averages[0]:
         row = [student['student_name']] + student['grades'] + [student['average']]
@@ -98,6 +99,17 @@ def student_rankings(averages):
         student['rank'] = rank
     
     return sorted_averages
+
+def create_report_cards(sheet, rankings):
+    """Function to generate and update report cards in Google Sheets"""
+    report_card_worksheet = SHEET.worksheet('report_card')
+    report_card_worksheet.clear()
+    report_card_worksheet.append_row(['Student Name', 'Average Grade', 'Class Ranking', 'Comments'])
+
+    for student in rankings:
+        comment = input(f"Enter comments for {student['student_name']}: ")
+        row = [student['student_name'], student['average'], student['rank'], comment]
+        report_card_worksheet.append_row(row)
 
 def main():
     if validate_user():
@@ -119,6 +131,7 @@ def main():
         print("Student Rankings:")
         for student in ranked_students:
             print(f"Student Name: {student['student_name']}, Average Grade: {student['average']}, Rank: {student['rank']}")
+        create_report_cards(SHEET, ranked_students)
 
 if __name__ == "__main__":
     main()
