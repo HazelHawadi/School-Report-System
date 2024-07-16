@@ -112,6 +112,7 @@ def create_report_cards(sheet, rankings):
         report_card_worksheet.append_row(row)
 
 def main():
+    """Main function to run the program"""
     if validate_user():
         while True:
             data = get_student_grades()
