@@ -129,7 +129,13 @@ def main():
             for record in all_grades:
                 print(record)
             
-            another_student = input("Add another student? (yes/no): ").strip().lower()
+            while True:
+                another_student = input("Add another student? (yes/no): ").strip().lower()
+                if another_student == 'yes' or another_student == 'no':
+                    break
+                else:
+                    print(Fore.RED + "Invalid input. Please enter 'yes' or 'no'." + Fore.RESET)
+            
             if another_student != 'yes':
                 break
         
