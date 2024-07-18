@@ -1,19 +1,19 @@
 # School Report System
 
-![Website Mockup](assets/images/readme/)
+![Website Mockup](assets/images/readme/mockup.png)
 
-[This is a link to the live website]()
+[This is a link to the live website](https://school-report-system-917879c448b9.herokuapp.com/)
 #### - Username- admin
 #### - Password- admin123
 
-[This is a link to the live GoogleSheet]()
+[This is a link to the live GoogleSheet](https://docs.google.com/spreadsheets/d/172fwgbKjXDvf1E0kcot4SGobhYWERLbniFlzKu_cjmE/edit?usp=sharing)
 
 ## Table Of Contents
-- [Introduction](#Introduction)
-- [Design](#Design) 
+- [Introduction](#introduction)
+- [Design](#design) 
   * [FlowChart/Function](#flowchartfunction)
   * [Colorama](#colorama)
-  * [User Feedback](#User-feedback)
+  * [User Feedback](#user-feedback)
 - [Application Features](#application-features)
   * [Python Logic](#python-logic)
   * [Data/APIs Used](#dataapis-used)
@@ -160,6 +160,26 @@ The School Report System is a Python-based application that leverages Google She
 - Attendance Tracking: Add functionality to track student attendance alongside their grades. This could provide a more comprehensive view of student performance.
 
 ## Testing
+**No Errors Where Found**
+
 [CI Python Linter](https://pep8ci.herokuapp.com/#)
 
 ![python validation](assets/images/readme/python_validation.png)
+
+## Deployment
+
+## Technologies
+- Github for the source code.
+- Gitpod for creating the website.
+- Python
+- Code Institute's Gitpod Template
+- Heroku for deployment
+- Google Sheets
+- Code institute learnings
+- Techsini to create a mockup of the website
+- CI Python Linter
+- Lucidchart for the flowchart
+
+## Credits
+
+## Acknowledgement
