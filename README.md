@@ -21,6 +21,7 @@
 - [Accessibility](#accessibility)
 - [Future Features](#future-features)
 - [Testing](#testing)  
+- [API Setup](#api-setup)
 - [Deployment](#deployment)
 - [Technologies](#technologies)
 - [Code](#code)  
@@ -55,6 +56,11 @@ The School Report System is a Python-based application that leverages Google She
 
 ### Colorama
 - The application uses the colorama library for colorizing terminal text to enhance user experience with clear visual feedback:
+
+  * **Blue for the welcome message**
+
+  ![blue](assets/images/readme/colorama_five.png)
+
   * **Green for successful actions.**
 
   ![green](assets/images/readme/colorama_one.png)
@@ -164,7 +170,55 @@ The School Report System is a Python-based application that leverages Google She
 
 ![python validation](assets/images/readme/python_validation.png)
 
+## API Setup
+
+1. Google Cloud Project:
+
+  - Go to the Google Cloud Console.
+  - Create a new project or select an existing one.
+2.  Enable APIs:
+
+  - Enable the Google Sheets API and Google Drive API for your project:
+  - Navigate to the API Library.
+  - Search for "Google Sheets API" and "Google Drive API".
+  - Click on each and enable them.
+3. Create a Service Account:
+
+  - Go to the Service Accounts page.
+  - Click "Create Service Account".
+  - Provide a name and description for the service account.
+  - Click "Create and Continue".
+  - Grant Roles to the Service Account:
+
+4. Assign the role of "Editor" to the service account.
+  - Click "Continue" and then "Done".
+5. Create and Download a Service Account Key:
+
+  - Click on the service account you just created.
+  - Go to the "Keys" tab.
+  - Click "Add Key" and select "Create new key".
+  - Choose JSON and download the key file. Save it as creds.json in your project directory.
+6. Share Google Sheets with Service Account:
+
+  - Open your Google Sheet.
+  - Click "Share".
+  - Enter the service account email (found in the creds.json file) and give it "Editor" access.
+
 ## Deployment
+### Heroku
+
+1. Sign into [Heruku](https://dashboard.heroku.com/apps)
+2. On the right side click **New** and select **Create new app**
+3. Create a new Heroku app with a unique name. Heroku will generate a random name if you don't specify one and select your region.
+4. Click **Create app**
+5. Close to the top select **Settings**, click on *Reveal Config Vars**
+  - On **Key** and **Value** input fields enter PORT and Paste everything copied from the **creds.json** folder in your gitpod workspace(respectively).
+6. Click **add** to create another set of KEY and VALUE.
+  - In the input fields add KEY: PORT, VALUE: 8000
+7. At the bottom, click **Add buildpack**, from the options select **python** and **nodejs** + **add buildpack** after selecting each.
+8. Close to the top where you clicked **Settings** this time click **Deploy**, click **connect to github**.
+  - search for the name of the repository you want to deploy and click **connect**
+9. Click **deploy branch**
 
 ## Technologies
 - Github for the source code.
