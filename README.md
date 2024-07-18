@@ -22,10 +22,8 @@
 - [Future Features](#future-features)
 - [Testing](#testing)  
 - [Deployment](#deployment)
-- [Clone A Repository](#how-to-run-the-project-locally)
-- [Download A Repository](#download-the-repository) 
 - [Technologies](#technologies)
-- [Credits](#credits)  
+- [Code](#code)  
 - [Acknowledgements](#acknowledgements) 
 
 
@@ -180,6 +178,13 @@ The School Report System is a Python-based application that leverages Google She
 - CI Python Linter
 - Lucidchart for the flowchart
 
-## Credits
+## Code
+- Python- [Code Institute](https://learn.codeinstitute.net/dashboard)
+- Tutorial videos- Programming with Mosh [YouTube](https://www.youtube.com/@programmingwithmosh)
 
 ## Acknowledgement
+I would like to thank my Mentor Alan Bushell for his guidance and advice.
+
+A big thanks to Slack Community for for always being someone willing to answer my questions.
+
+Also Amy Richardson (Cohort Facilitator) who does check up on my progress.
