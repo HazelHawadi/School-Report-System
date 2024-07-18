@@ -163,6 +163,7 @@ def main():
                 )
     if another_student == 'yes' or another_student == 'no':
         break
+
     else:
         print(
                         Fore.RED + "Invalid input. Please enter 'yes' or "
