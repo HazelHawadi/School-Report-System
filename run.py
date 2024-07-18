@@ -149,8 +149,7 @@ def main():
             grades_worksheet = SHEET.worksheet('grades')
             insert_grades(data, grades_worksheet)
             all_grades = collect_grades(grades_worksheet)
-            print(Fore.YELLOW + "Grades inserted into the worksheet." /
-                  + Fore.RESET)
+            print(Fore.YELLOW + "Grades inserted in worksheet." + Fore.RESET)
             print(Fore.CYAN + "All grades in the worksheet:" + Fore.RESET)
             for record in all_grades:
                 print(record)
