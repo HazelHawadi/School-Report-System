@@ -161,17 +161,17 @@ def main():
                     .strip()
                     .lower()
                 )
-    if another_student == 'yes' or another_student == 'no':
-        break
+                if another_student == 'yes' or another_student == 'no':
+                    break
 
-    else:
-        print(
+                else:
+                    print(
                         Fore.RED + "Invalid input. Please enter 'yes' or "
                         "no." + Fore.RESET
                     )
 
-        if another_student != 'yes':
-            break
+            if another_student != 'yes':
+                break
 
         averages = calculate_averages(all_grades)
         print(Fore.CYAN + "Student Averages:" + Fore.RESET)
