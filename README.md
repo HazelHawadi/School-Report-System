@@ -10,8 +10,6 @@
 
 ## Table Of Contents
 - [Introduction](#Introduction)
-- [Goal](#goal)
-- [Usage](#usage)
 - [Design](#Design) 
   * [FlowChart/Function](#flowchartfunction)
   * [Colorama](#colorama)
@@ -19,7 +17,10 @@
 - [Application Features](#application-features)
   * [Python Logic](#python-logic)
   * [Data/APIs Used](#dataapis-used)
-- [Feature testing](#feature-testing)
+- [UX (User Experience)](#user-experience)
+  *[User Stories](#user-stories)
+  *[Accessibility](#accessibility)
+- [Future Features](#future-features)
 - [Unfixed Bugs](#unfixed-bugs)  
 - [Deployment](#deployment)
 - [Clone A Repository](#how-to-run-the-project-locally)
@@ -92,3 +93,10 @@ The School Report System is a Python-based application that leverages Google She
 
 ## Data/APIs Used
 - Google Sheets API: For storing, retrieving, and updating grade data.
+
+## Future Features
+- Expanded User Roles: Differentiate between who is logging in
+- Grade Visualization: Graphical representation of student performance.
+- Email Notifications: Send report cards to students via email.
+- Parent Access: Allow parents to view their child's progress.
+- Attendance Tracking: Add functionality to track student attendance alongside their grades. This could provide a more comprehensive view of student performance.
