@@ -89,8 +89,10 @@ def calculate_averages(grades):
         student_averages.append({'student_name': student,
                                 'grades': grade_values, 'average': average})
 
-    subject_averages = {subject: subject_totals[subject] / subject_counts /
-                        [subject] for subject in subjects}
+    subject_averages = {
+        subject: subject_totals[subject] / subject_counts[subject]
+        for subject in subjects
+    }
 
     return student_averages, subject_averages
 

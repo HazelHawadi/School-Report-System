@@ -1,4 +1,4 @@
-# Test Your Knowledge: JavaScipt, HTML, CSS
+# 
 
 ![Website Mockup](assets/images/readme/)
 
@@ -6,8 +6,11 @@
 #### - Username- admin
 #### - Password- admin123
 
+[This is a link to the GoogleSheet]()
+
 ## Table Of Contents
 - [Project Overview](#project-overview)
+- [FlowChart](#FlowChart)
 - [Goal](#goal)
 - [Usage](#usage)
 - [Features](#features) 
