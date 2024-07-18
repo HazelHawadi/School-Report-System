@@ -58,3 +58,21 @@ The School Report System is a Python-based application that leverages Google She
 - Rank students based on average grades.
 8. **Report Card Generation**
 - Generate and update report cards in Google Sheets with comments.
+
+### Colorama
+- The application uses the colorama library for colorizing terminal text to enhance user experience with clear visual feedback:
+  * **Green for successful actions.**
+
+  ![green](assets/images/readme/colorama_one.png)
+
+  * **Red for errors or invalid inputs.**
+
+  ![red](assets/images/readme/colorama_two.png)
+
+  * **Yellow and Cyan for informational messages.**
+
+  ![yellow & cyan](assets/images/readme/colorama_three.png)
+
+  * **Magenta for highlighting student rankings.**
+
+  ![magenta](assets/images/readme/colorama_four.png)
