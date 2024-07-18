@@ -125,7 +125,32 @@ The School Report System is a Python-based application that leverages Google She
   - I want clear instructions and prompts at each step of the process.
   - I want to go back to the main menu or home page to start a new task without losing previous data.
 
+### As a Returning User:
+1. **View Historical Data:**
+
+  - I want to log in and view previously entered grades and report cards.
+  - I want to see a leaderboard or ranking of students based on their average grades.
+
+2. **Manage and Update Data:**
+  - I want to update existing grades or add new grades for students.
+- I want the system to recalculate averages and rankings automatically after updates.
+
+3. **Enhanced Reporting and Analysis:**
+  - I want to generate detailed reports covering various aspects such as performance trends over time.
+  - I want the option to export reports as PDFs or print them directly.
+
+4. **Receive Notifications:**
+  - I want to receive email notifications when new grades are entered or reports are generated.
+  - I want to be notified of any system updates or new features.
+
+5. **Additional Features:**
+  - I want to track student attendance alongside grades.
+  - I want to set up automated alerts for students with grades below a certain threshold.  
+
 ## Accessibility
+- Visual Feedback: Use of colorama to provide color-coded messages for better clarity and immediate understanding of system status.
+-  Ensure that all inputs and interactions can be completed using the keyboard to accommodate users who may have difficulty using a mouse.
+- Provide clear instructions and error messages to help users understand what is required and how to correct any mistakes.
 
 ## Future Features
 - Expanded User Roles: Differentiate between who is logging in
