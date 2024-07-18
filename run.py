@@ -53,7 +53,8 @@ def get_student_grades():
 
 def insert_grades(data, worksheet):
     """ Function to insert grades into Google Sheets """
-    row = [data['student_name']] + data['grades']
+    student_name, grades = data  # unpacking the tuple
+    row = [student_name] + grades
     worksheet.append_row(row)
 
 def collect_grades(worksheet):
