@@ -10,14 +10,12 @@
 
 ## Table Of Contents
 - [Introduction](#Introduction)
-- [FlowChart](#FlowChart)
 - [Goal](#goal)
 - [Usage](#usage)
-- [Features](#features) 
-  * [](#)
-  * [](#)
-  * [](#)
-  * [Color Scheme](#color-scheme)
+- [Design](#Design) 
+  * [FlowChart/Function](#FlowChart/Function)
+  * [Colorama](#colorama)
+  * [User Feedback](#User-feedback)
 - [Existing Features](#existing-features)
 - [Future Features](#future-features)
 - [UX Design](#ux-design)
@@ -38,5 +36,25 @@
 ## Introduction
 The School Report System is a Python-based application that leverages Google Sheets to manage and analyze student grades. The system allows for secure user authentication, collection of student grades, computation of average scores, and generation of detailed report cards. This application simplifies the administrative tasks associated with student performance tracking and reporting.
 
-## FlowChart
+## Design
+### FlowChart/Function
 ![Flowchart](assets/images/readme/school_report_system.png)
+
+1. **User Validation**
+- Input username and password.
+- Validate against stored credentials.
+2. **Grade Input**
+- Input student name.
+- Input grades for each subject.
+3. **Data Insertion**
+- Insert grades into Google Sheets.
+4. **Grade Collection**
+- Retrieve all grades from Google Sheets.
+5. **Averages Calculation**
+- Calculate student and subject averages.
+6. **Averages Update**
+- Update Google Sheets with calculated averages.
+7. **Student Ranking**
+- Rank students based on average grades.
+8. **Report Card Generation**
+- Generate and update report cards in Google Sheets with comments.
