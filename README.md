@@ -3,6 +3,8 @@
 ![Website Mockup](assets/images/readme/)
 
 [This is a link to the live website]()
+#### - Username- admin
+#### - Password- admin123
 
 ## Table Of Contents
 - [Project Overview](#project-overview)

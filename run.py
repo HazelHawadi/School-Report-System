@@ -30,8 +30,10 @@ def validate_user():
             print(Fore.GREEN + "Validation successful!" + Fore.RESET)
             return True
         else:
-            print(Fore.RED + "Failed! Invalid username or password. /
-                  Please try again." + Fore.RESET)
+            print(
+                Fore.RED + "Failed! Invalid username or password. Please "
+                "try again." + Fore.RESET
+            )
 
 
 def get_student_grades():
@@ -42,8 +44,7 @@ def get_student_grades():
 
     for subject in subjects:
         while True:
-            grade_input = input(f"Enter the grade for {subject}: ")/
-            .strip().lower()
+            grade_input = input(f"Enter grade for {subject}: ").strip().lower()
             try:
                 grade = float(grade_input)
                 if grade < 0 or grade > 100:
@@ -85,7 +86,7 @@ def calculate_averages(grades):
             subject_counts[subject] += 1
 
         average = sum(grade_values) / len(grade_values)
-        student_averages.append({'student_name': student, /
+        student_averages.append({'student_name': student,
                                 'grades': grade_values, 'average': average})
 
     subject_averages = {subject: subject_totals[subject] / subject_counts /
@@ -97,21 +98,24 @@ def calculate_averages(grades):
 def update_averages(sheet, averages):
     """ Function to update the averages worksheet """
     sheet.clear()
-    sheet.append_row(['Student Name', 'Mathematics', 'English', 'Physics', /
+    sheet.append_row(['Student Name', 'Mathematics', 'English', 'Physics',
                      'Chemistry', 'Average Grade'])
     for student in averages[0]:
-        row = [student['student_name']] + student['grades'] + /
-        [student['average']]
-        sheet.append_row(row)
+        row = (
+            [student['student_name']] +
+            student['grades'] +
+            [student['average']]
+        )
+    sheet.append_row(row)
     sheet.append_row([])
-    sheet.append_row(['Subject Averages'] + [averages[1][subject] for subject /
-                                             in ['Mathematics', 'English', /
+    sheet.append_row(['Subject Averages'] + [averages[1][subject] for subject
+                                             in ['Mathematics', 'English',
                                                  'Physics', 'Chemistry']])
 
 
 def student_rankings(averages):
     """Sort students by average grade in descending order"""
-    sorted_averages = sorted(averages[0], key=lambda x: x['average'], /
+    sorted_averages = sorted(averages[0], key=lambda x: x['average'],
                              reverse=True)
 
     """Assign ranks based on sorted order"""
@@ -125,12 +129,12 @@ def create_report_cards(sheet, rankings):
     """Function to generate and update report cards in Google Sheets"""
     report_card_worksheet = SHEET.worksheet('report_card')
     report_card_worksheet.clear()
-    report_card_worksheet.append_row(['Student Name', 'Average Grade', /
+    report_card_worksheet.append_row(['Student Name', 'Average Grade',
                                      'Class Ranking', 'Comments'])
 
     for student in rankings:
         comment = input(f"Enter comments for {student['student_name']}: ")
-        row = [student['student_name'], student['average'], student['rank'], /
+        row = [student['student_name'], student['average'], student['rank'],
                comment]
         report_card_worksheet.append_row(row)
 
@@ -152,16 +156,21 @@ def main():
                 print(record)
 
             while True:
-                another_student = input("Add another student? (yes/no): ") /
-                .strip().lower()
-                if another_student == 'yes' or another_student == 'no':
-                    break
-                else:
-                    print(Fore.RED + "Invalid input. Please enter 'yes' or /
-                          'no'." + Fore.RESET)
+                another_student = (
+                    input("Add another student? (yes/no): ")
+                    .strip()
+                    .lower()
+                )
+    if another_student == 'yes' or another_student == 'no':
+        break
+    else:
+        print(
+                        Fore.RED + "Invalid input. Please enter 'yes' or "
+                        "no." + Fore.RESET
+                    )
 
-            if another_student != 'yes':
-                break
+        if another_student != 'yes':
+            break
 
         averages = calculate_averages(all_grades)
         print(Fore.CYAN + "Student Averages:" + Fore.RESET)
@@ -174,9 +183,11 @@ def main():
         ranked_students = student_rankings(averages)
         print(Fore.MAGENTA + "Student Rankings:" + Fore.RESET)
         for student in ranked_students:
-            print(f"Student Name: {student['student_name']}, Average Grade: /
-                  {student['average']}, Rank: {student['rank']}")
-
+            print(
+             f"Student Name: {student['student_name']}, "
+             f"Average Grade: {student['average']}, "
+             f"Rank: {student['rank']}"
+            )
         create_report_cards(SHEET, ranked_students)
 
 
