@@ -22,6 +22,7 @@ users = {
 
 def validate_user():
     """ Function to validate user Credentials """
+    print(Fore.BLUE + "Welcome to the School Report System!" + Fore.RESET)
     while True:
         username = input("Enter your username: ")
         password = input("Enter your password: ")
