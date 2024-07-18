@@ -18,8 +18,7 @@
   * [Python Logic](#python-logic)
   * [Data/APIs Used](#dataapis-used)
 - [UX (User Experience)](#user-experience)
-  *[User Stories](#user-stories)
-  *[Accessibility](#accessibility)
+- [Accessibility](#accessibility)
 - [Future Features](#future-features)
 - [Unfixed Bugs](#unfixed-bugs)  
 - [Deployment](#deployment)
@@ -94,9 +93,44 @@ The School Report System is a Python-based application that leverages Google She
 ## Data/APIs Used
 - Google Sheets API: For storing, retrieving, and updating grade data.
 
+## User Experience
+### As a first time user:
+
+1. **Start the Process by Logging In:**
+  - I want to securely log in to the system by entering my username and password.
+  - I want to receive immediate feedback on the success or failure of my login attempt.
+
+2. **Input Student Grades:**
+  - I want to start the grade input process by entering a student's name.
+  - I want to input grades for core subjects  such as Mathematics, English, Physics, and Chemistry.
+  - I want to validate my input to ensure grades are between 0 and 100.
+
+3. **Save and View Grades:**
+  - I want to save the grades into the system (Google Sheets) by clicking a button.
+  - I want to receive confirmation that grades have been successfully saved.
+  - I want to view all entered grades to ensure they have been recorded correctly.
+
+4. **Calculate and View Averages:**
+
+  - I want the system to calculate average grades for each student and each subject automatically.
+  - I want to see clear feedback on the calculated averages.
+
+5. **Generate and View Report Cards:**
+  - I want to generate report cards for each student with their average grades and class ranking.
+  - I want to input personalized comments for each student.
+  - I want the system to display the final report cards with all necessary details.
+
+6. **Navigate Easily:**
+
+  - I want clear instructions and prompts at each step of the process.
+  - I want to go back to the main menu or home page to start a new task without losing previous data.
+
+## Accessibility
+
 ## Future Features
 - Expanded User Roles: Differentiate between who is logging in
 - Grade Visualization: Graphical representation of student performance.
 - Email Notifications: Send report cards to students via email.
 - Parent Access: Allow parents to view their child's progress.
 - Attendance Tracking: Add functionality to track student attendance alongside their grades. This could provide a more comprehensive view of student performance.
+
