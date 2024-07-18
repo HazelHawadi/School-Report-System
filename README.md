@@ -20,7 +20,7 @@
 - [UX (User Experience)](#user-experience)
 - [Accessibility](#accessibility)
 - [Future Features](#future-features)
-- [Unfixed Bugs](#unfixed-bugs)  
+- [Testing](#testing)  
 - [Deployment](#deployment)
 - [Clone A Repository](#how-to-run-the-project-locally)
 - [Download A Repository](#download-the-repository) 
@@ -159,3 +159,7 @@ The School Report System is a Python-based application that leverages Google She
 - Parent Access: Allow parents to view their child's progress.
 - Attendance Tracking: Add functionality to track student attendance alongside their grades. This could provide a more comprehensive view of student performance.
 
+## Testing
+[CI Python Linter](https://pep8ci.herokuapp.com/#)
+
+![python validation](assets/images/readme/python_validation.png)
