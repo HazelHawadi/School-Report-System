@@ -13,16 +13,12 @@
 - [Goal](#goal)
 - [Usage](#usage)
 - [Design](#Design) 
-  * [FlowChart/Function](#FlowChart/Function)
+  * [FlowChart/Function](#flowchartfunction)
   * [Colorama](#colorama)
   * [User Feedback](#User-feedback)
-- [Existing Features](#existing-features)
-- [Future Features](#future-features)
-- [UX Design](#ux-design)
-    * [User Stories](#user-stories)
-- [Testing](#testing)
-  * [User Story Testing](#user-story-testing)
-  * [Feature testing](#feature-testing)
+- [Application Features](#application-features)
+  * [Python Logic](#python-logic)
+  * [Data/APIs Used](#dataapis-used)
 - [Feature testing](#feature-testing)
 - [Unfixed Bugs](#unfixed-bugs)  
 - [Deployment](#deployment)
@@ -76,3 +72,23 @@ The School Report System is a Python-based application that leverages Google She
   * **Magenta for highlighting student rankings.**
 
   ![magenta](assets/images/readme/colorama_four.png)
+
+  ### User Feedback
+- Successful validation: Validation successful!
+- Invalid login attempt: Failed! Invalid username or password. Please try again.
+- Grade entry success: Grades inserted in worksheet.
+- Completion of tasks: Comments have been successfully added.
+
+## Application Features
+## Python Logic
+- User Validation: Ensures secure login for administrators.
+- Grade Input: Collects grades for Mathematics, English, Physics and Chemestry.
+- Data Insertion: Adds grades to Google Sheets.
+- Grade Collection: Retrieves and displays all stored grades.
+- Averages Calculation: Calculates the average grade for each student subject.
+- Averages Update: Updates Google Sheets with grade average data.
+- Student Ranking: Ranks students based on average grades ascending.
+- Report Card Generation: Produces report cards with personalized comments.
+
+## Data/APIs Used
+- Google Sheets API: For storing, retrieving, and updating grade data.
