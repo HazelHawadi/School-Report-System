@@ -49,7 +49,7 @@ def get_student_grades():
             except ValueError as e:
                 print(Fore.RED + f"Invalid input, {e}" + Fore.RESET)
     
-    return {'student_name': student_name, 'grades': grades}
+    return student_name, grades
 
 def insert_grades(data, worksheet):
     """ Function to insert grades into Google Sheets """
