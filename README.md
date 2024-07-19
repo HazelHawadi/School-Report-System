@@ -149,7 +149,7 @@ The School Report System is a Python-based application that leverages Google She
 
 5. **Additional Features:**
   - I want to track student attendance alongside grades.
-  - I want to set up automated alerts for students with grades below a certain threshold.  
+  - I want to set up automated alerts for students with grades below a certain threshold. 
 
 ## Accessibility
 - Visual Feedback: Use of colorama to provide color-coded messages for better clarity and immediate understanding of system status.
@@ -164,6 +164,9 @@ The School Report System is a Python-based application that leverages Google She
 - Attendance Tracking: Add functionality to track student attendance alongside their grades. This could provide a more comprehensive view of student performance.
 
 ## Testing
+### User story Testing
+![Expectations vs Realization](assets/images/readme/testing.png) 
+
 **No Errors Where Found**
 
 [CI Python Linter](https://pep8ci.herokuapp.com/#)
@@ -207,7 +210,7 @@ The School Report System is a Python-based application that leverages Google She
 ## Deployment
 ### Heroku
 
-1. Sign into [Heruku](https://dashboard.heroku.com/apps)
+1. Sign into [Heroku](https://dashboard.heroku.com/apps)
 2. On the right side click **New** and select **Create new app**
 3. Create a new Heroku app with a unique name. Heroku will generate a random name if you don't specify one and select your region.
 4. Click **Create app**
