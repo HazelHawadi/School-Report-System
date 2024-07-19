@@ -86,7 +86,7 @@ The School Report System is a Python-based application that leverages Google She
 ## Application Features
 ## Python Logic
 - User Validation: Ensures secure login for administrators.
-- Grade Input: Collects grades for Mathematics, English, Physics and Chemestry.
+- Grade Input: Collects grades for Mathematics, English, Physics and Chemistry.
 - Data Insertion: Adds grades to Google Sheets.
 - Grade Collection: Retrieves and displays all stored grades.
 - Averages Calculation: Calculates the average grade for each student subject.
@@ -166,6 +166,9 @@ The School Report System is a Python-based application that leverages Google She
 ## Testing
 ### User story Testing
 ![Expectations vs Realization](assets/images/readme/testing.png) 
+
+### Feature Testing
+![Feature Testing](assets/images/readme/testing_two.png)
 
 **No Errors Where Found**
 
