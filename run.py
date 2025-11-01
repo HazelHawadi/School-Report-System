@@ -45,15 +45,20 @@ def get_student_grades():
 
     for subject in subjects:
         while True:
-            grade_input = input(f"Enter grade for {subject}: ").strip().lower()
+            grade_input = input(f"Enter grade for {subject} (out of 100): ").strip()
+            
+            if not grade_input:
+                print(Fore.RED + "Invalid input. Please enter a number between 0 and 100." + Fore.RESET)
+                continue
+
             try:
                 grade = float(grade_input)
                 if grade < 0 or grade > 100:
                     raise ValueError("Grade must be between 0 and 100.")
                 grades.append(grade)
                 break
-            except ValueError as e:
-                print(Fore.RED + f"Invalid input, {e}" + Fore.RESET)
+            except ValueError:
+                print(Fore.RED + "Invalid input. Please enter a number between 0 and 100." + Fore.RESET)
 
     return student_name, grades
 
@@ -86,12 +91,15 @@ def calculate_averages(grades):
             subject_totals[subject] += grade
             subject_counts[subject] += 1
 
-        average = sum(grade_values) / len(grade_values)
-        student_averages.append({'student_name': student,
-                                'grades': grade_values, 'average': average})
+        average = round(sum(grade_values) / len(grade_values), 2)
+        student_averages.append({
+            'student_name': student,
+            'grades': grade_values,
+            'average': average
+        })
 
     subject_averages = {
-        subject: subject_totals[subject] / subject_counts[subject]
+        subject: round(subject_totals[subject] / subject_counts[subject], 2)
         for subject in subjects
     }
 
@@ -102,14 +110,17 @@ def update_averages(sheet, averages):
     """ Function to update the averages worksheet """
     sheet.clear()
     sheet.append_row(['Student Name', 'Mathematics', 'English', 'Physics',
-                     'Chemistry', 'Average Grade'])
+                      'Chemistry', 'Average Grade'])
+    
+    # Add each student's average row
     for student in averages[0]:
         row = (
             [student['student_name']] +
             student['grades'] +
             [student['average']]
         )
-    sheet.append_row(row)
+        sheet.append_row(row)
+    
     sheet.append_row([])
     sheet.append_row(['Subject Averages'] + [averages[1][subject] for subject
                                              in ['Mathematics', 'English',
@@ -131,17 +142,27 @@ def student_rankings(averages):
 def create_report_cards(sheet, rankings):
     """Function to generate and update report cards in Google Sheets"""
     report_card_worksheet = SHEET.worksheet('report_card')
-    report_card_worksheet.clear()
-    report_card_worksheet.append_row(['Student Name', 'Average Grade',
-                                     'Class Ranking', 'Comments'])
+
+    # Get existing records for comments so they don't ask again
+    existing_records = report_card_worksheet.get_all_records()
+    existing_students = {record['Student Name']: record['Comments'] for record in existing_records}
+
+    # If sheet is empty, add headers
+    if not existing_records:
+        report_card_worksheet.append_row(['Student Name', 'Average Grade', 'Class Ranking', 'Comments'])
 
     for student in rankings:
-        comment = input(f"Enter comments for {student['student_name']}: ")
-        row = [student['student_name'], student['average'], student['rank'],
-               comment]
-        report_card_worksheet.append_row(row)
+        name = student['student_name']
+        average = student['average']
+        rank = student['rank']
 
-    print(Fore.GREEN + "Comments have been successfully added." + Fore.RESET)
+        # Only ask for comment if the student doesn't already exist
+        if name not in existing_students:
+            comment = input(f"Enter comments for {name}: ")
+            report_card_worksheet.append_row([name, average, rank, comment])
+            print(Fore.GREEN + f"Added new comment for {name}." + Fore.RESET)
+        else:
+            print(Fore.YELLOW + f"Skipping {name} — comment already exists." + Fore.RESET)
 
 
 def main():
