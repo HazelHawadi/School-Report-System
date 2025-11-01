@@ -4,7 +4,7 @@
 
 [This is a link to the live website](https://schoolreportsystem-7d4fc2e8318b.herokuapp.com/)
 
-[This is a link to the live GoogleSheet](https://docs.google.com/spreadsheets/d/172fwgbKjXDvf1E0kcot4SGobhYWERLbniFlzKu_cjmE/edit?usp=sharing)
+[This is a link to the live GoogleSheet](https://docs.google.com/spreadsheets/d/1MQZU3j9feQgQ2jLjEghHTpK7C_PeanNMEGgdb5cUGcM/edit?gid=0#gid=0)
 
 ## Table Of Contents
 - [Introduction](#introduction)
